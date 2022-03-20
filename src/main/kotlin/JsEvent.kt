@@ -1,0 +1,1 @@
+class JsEvent(override var value: dynamic): Event<dynamic>
