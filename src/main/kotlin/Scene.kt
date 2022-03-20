@@ -11,7 +11,7 @@ class Scene(val name: String, builder: Scene.()->Unit): MutableList<Event<*>> by
     infix fun Show.scene(bg: String) = Show scene Background(bg)
     infix fun Show.character(sprite: String): TransitionableEvent{val event = TransitionableEvent("show character $sprite");this@Scene.add(event);return event}
     infix fun Jump.to(to: String): StringEvent {val event = StringEvent("jump $to");this@Scene.add(event);return event}
-    fun <T> BuildEvent(builder: EventBuilder.()->Event<T>){add(EventBuilder.builder())}
-
+    fun <T> BuildEvent(builder: EventBuilder.()->Event<T>){add(EventBuilder().builder())}
+    fun Choice(builder: ChoiceBuilder.()->Unit){val cb = ChoiceBuilder();cb.builder();add(cb.build())}
     //interface ShowInternal {infix fun scene(bg:Background):TransitionableEvent;@JsName("sceneString") infix fun scene(bg: String):TransitionableEvent}
 }

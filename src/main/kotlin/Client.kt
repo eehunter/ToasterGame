@@ -23,7 +23,20 @@ external val monogatari: dynamic
 
 object Show
 object Jump
-object EventBuilder{
+object Set
+class ChoiceBuilder: EventBuilder(){
+    var dialog: StringEvent? = null
+    val options = mutableListOf<Pair<String,dynamic>>()
+
+    fun build(): JsEvent{
+        val js = js("{}")
+        js.Dialog = dialog!!.value
+        options.forEach { js[it.first]=it.second }
+        return JsEvent(objectEventLiteral("Choice",js))
+    }
+    //infix fun dynamic.dialogue(str: StringEvent) {this.Dialogue = str.value}
+}
+open class EventBuilder{
     infix fun Character.says(line: String) = StringEvent("${this.prefix} $line")
     infix fun Show.scene(bg: Background) = TransitionableEvent("show scene "+bg.name)
     infix fun Show.scene(bg: String) = Show scene Background(bg)
