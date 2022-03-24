@@ -5,7 +5,7 @@ import Transitions.fadeOut
 object Scenes: MutableList<Scene> by mutableListOf() {
     //override fun toString(): String = joinToString(",", "{", "}") { "${it.name}: $it" }
     init{
-        Scene("Start"){
+        /*Scene("Start"){
             Show scene "#f7f6f6" with fadeIn
             Show character Alex-"normal" with fadeIn and fadeOut.end
             Alex says "Hello, human."
@@ -24,7 +24,7 @@ object Scenes: MutableList<Scene> by mutableListOf() {
             Alex says "You answered 'No'."
             End
 
-        }
+        }*/
     }
     fun toJsObject(): dynamic{
         val otpt = Any().asDynamic()

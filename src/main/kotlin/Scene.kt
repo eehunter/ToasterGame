@@ -3,6 +3,7 @@ class Scene(val name: String, builder: Scene.()->Unit): MutableList<Event<*>> by
     init {this.builder();Scenes.add(this)}
     override fun toString(): String = joinToString(",","[","]")
     infix fun Character.says(line: String) {add(StringEvent("${this.prefix} $line"))}
+    infix fun Narrator.says(line: String) {add(StringEvent(line))}
     val End get() = +StringEvent("end")
     operator fun Event<*>.unaryPlus() {add(this)}
     operator fun String.unaryPlus() {add(StringEvent(this))}
