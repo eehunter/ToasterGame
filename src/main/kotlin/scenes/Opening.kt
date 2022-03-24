@@ -3,10 +3,14 @@ package scenes
 import Characters.Alex
 import Characters.Chris
 import Characters.Eclipse
+import Hide
 import Narrator
 import Scene
 import Show
+import SpriteID.Companion.normal
+import Transitions.center
 import Transitions.fadeIn
+import Transitions.fadeOut
 import Transitions.left
 import Transitions.move
 import Transitions.right
@@ -36,7 +40,7 @@ object Opening {init{
         // play knock sound, switch to door background
         +"Cautiously I opened it, my mind too busy to think about what I would say to the stranger I was about to greet."
         // play Alex door CG, change music?
-        Show character Alex-"normal"
+        Show character Alex-normal
         +"I stared blankly for a moment at the being before me before I remembered how to speak."
         Chris says "You're a protogen. Like, an <i>actual</i> protogen."
         +"I continued to gape, dumbfounded."
@@ -60,14 +64,16 @@ object Opening {init{
         +"If this was all in my imagination, I realized, that would explain how I knew Alex's name."
         Alex says "I should probably introduce you to the others."
         +"I heard another string of beeps, after which a second protogen came up the back step next to him."
-        Show character Alex-"normal" at right with move
-        Show character Eclipse-"normal" at left with fadeIn
+        Show character Alex-normal at right with move
+        Show character Eclipse-normal at left with fadeIn
         +"They reached out to one another as if to shake hands."
         // CG here, maybe? Having too many might take a while
         +"There was a brief flash of blue light, before the two protogens turned back to me."
         Alex says "This is Eclipse. She's our lead researcher."
         Alex says "I'm gonna go give the others my translation mappings. Talk to Eclipse if you have any questions."
         +"Even after I decided to just play along, I was still having a hard time processing what was happening."
+        Hide character Alex with fadeOut
+        Show character Eclipse-normal at center with move
         +"Alex left and headed toward the three remaining protogens who stood a distance away."
         +"It took a moment for me to react. I then turned to Eclipse."
         Chris says "So you're a researcher? What are you studying?"
@@ -78,7 +84,7 @@ object Opening {init{
         +"Perhaps it is worth mentioning that this was happening just after my last class of the day, after I had stayed up abnormally late the last few nights, and then gotten up early to attend an online class."
         +"Having only gotten four hours of sleep a night for the last five days definitely wasn't helping me function."
         +"There was an awkward silence for a moment, before Alex came back."
-        Show character Alex-"normal" with fadeIn
+        Show character Alex-normal at right with fadeIn
 
     }
 

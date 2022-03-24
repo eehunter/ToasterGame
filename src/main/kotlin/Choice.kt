@@ -1,3 +1,13 @@
+
+
+
+value class SpriteID(val id:String){
+    companion object{
+        val normal = SpriteID("normal")
+    }
+}
+
+
 /*class Choice(val dialog: Event<String>? = null, val classes: String? = null, val options: Array<Option>): Event<dynamic> {
     override var value: dynamic = objectEvent("Choice"){ obj ->
             if(dialog != null)obj.Dialog = dialog.value

@@ -22,6 +22,7 @@ fun getCharacters() = Characters.toJsObject()
 external val monogatari: dynamic
 
 object Show
+object Hide
 object Jump
 object Set
 object Narrator
@@ -43,6 +44,8 @@ open class EventBuilder{
     infix fun Show.scene(bg: Background) = TransitionableEvent("show scene "+bg.name)
     infix fun Show.scene(bg: String) = Show scene Background(bg)
     infix fun Show.character(sprite: String) = TransitionableEvent("show character $sprite")
+    infix fun Hide.character(sprite: String) = TransitionableEvent("hide character $sprite")
+    infix fun Hide.character(character: Character) = Hide character character.prefix
     infix fun Jump.to(to: String) = StringEvent("jump $to")
 }
 

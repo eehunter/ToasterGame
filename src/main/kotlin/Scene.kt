@@ -11,6 +11,8 @@ class Scene(val name: String, builder: Scene.()->Unit): MutableList<Event<*>> by
     infix fun Show.scene(bg: Background): TransitionableEvent{val event = TransitionableEvent("show scene "+bg.name);this@Scene.add(event);return event}
     infix fun Show.scene(bg: String) = Show scene Background(bg)
     infix fun Show.character(sprite: String): TransitionableEvent{val event = TransitionableEvent("show character $sprite");this@Scene.add(event);return event}
+    infix fun Hide.character(sprite: String): TransitionableEvent{val event = TransitionableEvent("hide character $sprite");this@Scene.add(event);return event}
+    infix fun Hide.character(character: Character): TransitionableEvent = Hide character character.prefix
     infix fun Jump.to(to: String): StringEvent {val event = StringEvent("jump $to");this@Scene.add(event);return event}
     fun <T> BuildEvent(builder: EventBuilder.()->Event<T>){add(EventBuilder().builder())}
     fun Choice(builder: ChoiceBuilder.()->Unit){val cb = ChoiceBuilder();cb.builder();add(cb.build())}
