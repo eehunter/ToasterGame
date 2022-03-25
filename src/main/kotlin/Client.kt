@@ -1,8 +1,5 @@
-import kotlinx.html.div
-import kotlinx.html.dom.append
-import org.w3c.dom.Node
-import kotlinx.browser.document
-import kotlinx.browser.window
+
+import scenes.Opening
 
 
 fun main() {
@@ -10,7 +7,7 @@ fun main() {
     //window.onload = { document.body?.sayHello() }
     //monogatari.script(Scenes.toJsObject())
     //monogatari.characters()
-
+    Opening
 }
 
 @JsExport
@@ -55,7 +52,7 @@ operator fun <T: StringEvent> T.plus(string: String):T {value+=string; return th
 
 infix fun <T: TransitionableEvent> T.with(transition: Transition):T{value+=" with $transition";return this}
 infix fun <T: TransitionableEvent> T.and(transition: Transition):T{value+=" $transition";return this}
-infix fun <T: TransitionableEvent> T.at(location: Location):T{value+=" with $location";return this}
+infix fun <T: TransitionableEvent> T.at(location: Location):T{value+=" at $location";return this}
 
 fun objectEvent(type: String, content: (dynamic)->Unit): dynamic{
     val otpt = Any().asDynamic()

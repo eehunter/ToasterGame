@@ -14,16 +14,18 @@ import Transitions.fadeOut
 import Transitions.left
 import Transitions.move
 import Transitions.right
+import Transitions.transition
+import and
 import at
 import with
 
 object Opening {init{
     Scene("Start"){
         Show scene "#000" with fadeIn
-        +"July 9th, 2020. That was the day it happened."
+        +"September 25th, 2020. That was the day it happened."
         +"That was the day that the first <i>actual</i> alien civilization made contact with earth."
-        +"I was on my computer at the time. I was working on a 3d model for a commission when I heard a rumbling from outside."
-        +"It started fairly quiet, barely even audible, but quickly grew to a deafening roar that shook my house enough that I could feel it."
+        +"I was on my computer at the time, working on an assignment for one of my classes, when I heard a rumbling from outside."
+        +"It started fairly quiet, barely even audible, but quickly grew to a deafening roar that made my workstation noticeably vibrate."
         +"Thinking it was an earthquake, I ran downstairs and headed for the back door. The field behind my house would be much safer than a building during an earthquake."
         +"I stopped halfway from the stairs to my door. Outside my window, I could now see a metal cylinder slowly descending to the ground, a jet of blue fire below it."
         +"My first thought was that a SpaceX prototype had ended up off course. The idea that a secret government project had done the same also crossed my mind."
@@ -64,7 +66,8 @@ object Opening {init{
         +"If this was all in my imagination, I realized, that would explain how I knew Alex's name."
         Alex says "I should probably introduce you to the others."
         +"I heard another string of beeps, after which a second protogen came up the back step next to him."
-        Show character Alex-normal at right with move
+        Show character Alex-normal
+        Show character Alex-normal at right with move and transition["2s"]
         Show character Eclipse-normal at left with fadeIn
         +"They reached out to one another as if to shake hands."
         // CG here, maybe? Having too many might take a while
@@ -73,14 +76,11 @@ object Opening {init{
         Alex says "I'm gonna go give the others my translation mappings. Talk to Eclipse if you have any questions."
         +"Even after I decided to just play along, I was still having a hard time processing what was happening."
         Hide character Alex with fadeOut
-        Show character Eclipse-normal at center with move
+        Show character Eclipse-normal at center with move and transition["2s"]
         +"Alex left and headed toward the three remaining protogens who stood a distance away."
         +"It took a moment for me to react. I then turned to Eclipse."
         Chris says "So you're a researcher? What are you studying?"
-        Eclipse says "Humans, of course. This is our first contact with sapient life outside our own kind, First Machine not withstanding."
-        Chris says "What's the First Machine?"
-        Eclipse says "Our... Creator deity, for lack of a better term."
-        Chris says "Huh."
+        Eclipse says "Humans, of course. This is our first contact with sapient life outside our own kind."
         +"Perhaps it is worth mentioning that this was happening just after my last class of the day, after I had stayed up abnormally late the last few nights, and then gotten up early to attend an online class."
         +"Having only gotten four hours of sleep a night for the last five days definitely wasn't helping me function."
         +"There was an awkward silence for a moment, before Alex came back."
